@@ -1,15 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const navItems = [
     <li>
-      <a href="/"> Completed Tasks</a>
+      <Link to="/">Home</Link>
     </li>,
     <li>
-      <a href="/"> To-Do</a>
+      <Link to="/complete">Complete Tasks</Link>
     </li>,
     <li>
-      <a href="/"> Calendar</a>
+      <Link to="/todo">To-Do</Link>
+    </li>,
+    <li>
+      <Link to="/calendar">Calendar</Link>
     </li>,
   ];
   return (
