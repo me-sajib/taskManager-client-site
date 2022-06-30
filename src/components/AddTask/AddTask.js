@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import Task from "../AllTask/Task";
+import Spinner from "../Spinner/Spinner";
 
 const AddTask = () => {
   const { data: tasks, isLoading } = useQuery("tasks", () =>
-    fetch("http://localhost:5000/task").then((res) => res.json())
+    fetch("https://tranquil-peak-12585.herokuapp.com/task").then((res) =>
+      res.json()
+    )
   );
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Spinner />;
   //   post task to database
   const handleTask = (e) => {
     e.preventDefault();
     const task = e.target.task.value;
 
-    fetch("http://localhost:5000/task", {
+    fetch("https://tranquil-peak-12585.herokuapp.com/task", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

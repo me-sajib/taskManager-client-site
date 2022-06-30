@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import Spinner from "../Spinner/Spinner";
 
 const EditTask = () => {
   const [task, setTask] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   useEffect(() => {
-    fetch("http://localhost:5000/task/" + id)
+    fetch("https://tranquil-peak-12585.herokuapp.com/task/" + id)
       .then((res) => res.json())
       .then((data) => {
         setTask(data);
@@ -19,7 +21,7 @@ const EditTask = () => {
     const task = e.target.task.value;
 
     if (task.length > 0) {
-      fetch("http://localhost:5000/task/" + id, {
+      fetch("https://tranquil-peak-12585.herokuapp.com/task/" + id, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -29,13 +31,13 @@ const EditTask = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data) {
-            alert("Task updated successfully");
+            Swal.fire("Updated!", "Task Updated successfully", "success");
             e.target.task.value = "";
           }
         });
     }
   };
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Spinner />;
   return (
     <div className="container flex justify-center">
       <div className="card w-96 bg-base-100 shadow-xl ">

@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Task = ({ task }) => {
   const completeTask = (task) => {
     const id = task._id;
-    fetch("http://localhost:5000/task/" + id, {
+    fetch("https://tranquil-peak-12585.herokuapp.com/task/" + id, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        fetch("http://localhost:5000/completeTask/", {
+        fetch("https://tranquil-peak-12585.herokuapp.com/completeTask/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -18,7 +19,7 @@ const Task = ({ task }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            alert("Task completed successfully");
+            Swal.fire("Complete", "Task Completed Successfully", "success");
           });
       });
   };

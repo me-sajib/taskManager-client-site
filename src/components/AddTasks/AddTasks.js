@@ -1,11 +1,12 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const AddTasks = () => {
   const handleTask = (e) => {
     e.preventDefault();
     const task = e.target.task.value;
 
-    fetch("http://localhost:5000/task", {
+    fetch("https://tranquil-peak-12585.herokuapp.com/task", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -15,7 +16,7 @@ const AddTasks = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert("Task added successfully");
+          Swal.fire("Added", "Task Add Successfully", "success");
           e.target.task.value = "";
         }
       });

@@ -1,12 +1,15 @@
 import React from "react";
 import { useQuery } from "react-query";
 import Task from "../AllTask/Task";
+import Spinner from "../Spinner/Spinner";
 
 const AllTask = () => {
   const { data: tasks, isLoading } = useQuery("tasks", () =>
-    fetch("http://localhost:5000/task").then((res) => res.json())
+    fetch("https://tranquil-peak-12585.herokuapp.com/task").then((res) =>
+      res.json()
+    )
   );
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Spinner />;
 
   return (
     <div className="container  flex justify-center">
