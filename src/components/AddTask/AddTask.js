@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Task from "../AllTask/Task";
 
 const AddTask = () => {
   const [tasks, setTasks] = useState([]);
+
+  //   get all tasks from database
+  useEffect(() => {
+    fetch("http://localhost:5000/task")
+      .then((res) => res.json())
+      .then((data) => setTasks(data));
+  }, []);
+
+  //   post task to database
   const handleTask = (e) => {
     e.preventDefault();
     const task = e.target.task.value;
-    setTasks([...tasks, task]);
+
     fetch("http://localhost:5000/task", {
       method: "POST",
       headers: {
@@ -34,8 +43,18 @@ const AddTask = () => {
             className="input input-bordered w-full max-w-xs"
           />
         </form>
-        <Task task={tasks} />
+        <div className="my-4">
+          <h2 className="text-6xl text-secondary font-bold">All Task</h2>
+          <div class="card w-96 bg-base-100 shadow-xl">
+            <div class="card-body">
+              {tasks.map((task, index) => (
+                <Task task={task} key={index} />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
+      {/* end of card */}
     </div>
   );
 };
