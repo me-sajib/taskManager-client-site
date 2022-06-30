@@ -6,6 +6,7 @@ import CompleteTask from "./components/CompleteTask/CompleteTask";
 import Home from "./components/Home/Home";
 import AllTask from "./components/AllTask/AllTask";
 import Calender from "./components/Calender/Calender";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/edit/:id" element={<EditTask />} />
         <Route path="/calendar" element={<Calender />} />
       </Routes>
+      <Footer />
     </>
   );
 }
