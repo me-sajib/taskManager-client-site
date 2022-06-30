@@ -3,13 +3,13 @@ import React from "react";
 const Nav = () => {
   const navItems = [
     <li>
-      <a href="/"> Task</a>
+      <a href="/"> Completed Tasks</a>
     </li>,
     <li>
-      <a href="/"> Task</a>
+      <a href="/"> To-Do</a>
     </li>,
     <li>
-      <a href="/"> Task</a>
+      <a href="/"> Calendar</a>
     </li>,
   ];
   return (
