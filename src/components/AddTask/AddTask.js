@@ -7,6 +7,20 @@ const AddTask = () => {
     e.preventDefault();
     const task = e.target.task.value;
     setTasks([...tasks, task]);
+    fetch("http://localhost:5000/task", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ task }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          alert("Task added successfully");
+          e.target.task.value = "";
+        }
+      });
   };
   return (
     <div className="container flex justify-center">
