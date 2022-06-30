@@ -13,8 +13,8 @@ const AllTask = () => {
       <div className="justify-start">
         <div className="my-4">
           <h2 className="text-6xl text-secondary font-bold mt-12">All Task</h2>
-          <div class="card w-96 bg-base-100 shadow-xl">
-            <div class="card-body">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
               {tasks.map((task, index) => (
                 <Task task={task} key={index} />
               ))}

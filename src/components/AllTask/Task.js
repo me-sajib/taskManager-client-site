@@ -29,7 +29,7 @@ const Task = ({ task }) => {
         <input
           type="checkbox"
           onClick={() => completeTask(task)}
-          class="checkbox-sm mr-2"
+          className="checkbox-sm mr-2"
         />
         <span className="text-3xl">{task.task}</span>
         <Link to={`/edit/${task._id}`} className="btn  btn-accent btn-sm ml-4">

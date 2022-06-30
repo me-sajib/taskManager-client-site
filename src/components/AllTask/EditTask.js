@@ -38,9 +38,9 @@ const EditTask = () => {
   if (loading) return <div>Loading...</div>;
   return (
     <div className="container flex justify-center">
-      <div class="card w-96 bg-base-100 shadow-xl ">
-        <div class="card-body">
-          <h2 class="card-title mb-3">
+      <div className="card w-96 bg-base-100 shadow-xl ">
+        <div className="card-body">
+          <h2 className="card-title mb-3">
             Updating <em className="text-primary font-bold">{task.task}</em>
           </h2>
           <form onSubmit={updateTask}>
@@ -50,8 +50,8 @@ const EditTask = () => {
               placeholder="Update Task"
               className="input input-bordered w-full max-w-xs"
             />
-            <div class="card-actions mt-4 ">
-              <button class="btn btn-primary" type="submit" name="submit">
+            <div className="card-actions mt-4 ">
+              <button className="btn btn-primary" type="submit" name="submit">
                 Update
               </button>
             </div>
