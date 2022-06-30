@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useQuery } from "react-query";
 import Task from "../AllTask/Task";
 import Spinner from "../Spinner/Spinner";
